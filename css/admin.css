@@ -1,0 +1,325 @@
+:root {
+    --rotaract-pink: #E2457C;
+    --dark: #040F0F;
+    --white: #FCFFFC;
+    --light-gray: #F4F4F4;
+}
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    color: var(--dark);
+    background-color: var(--white);
+    line-height: 1.6;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(252, 255, 252, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 2px solid var(--rotaract-pink);
+    padding: 0 6%;
+    z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo h1 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--dark);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.nav-links a {
+    position: relative;
+    text-decoration: none;
+    color: var(--dark);
+    font-weight: 500;
+    padding: 8px 0;
+}
+
+.nav-links a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: var(--rotaract-pink);
+    transition: width 0.3s ease;
+}
+
+.nav-links a.active::after {
+    width: 100%;
+}
+
+.nav-links a:hover {
+    color: var(--rotaract-pink);
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 2rem;
+    color: var(--rotaract-pink);
+    cursor: pointer;
+}
+
+@media (max-width: 900px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 75px;
+        right: 0;
+        width: 100%;
+        background-color: rgba(252,255,252,0.97);
+        border-top: 2px solid var(--rotaract-pink);
+        padding: 20px 0;
+    }
+    .nav-links.active { display: flex; }
+    .menu-toggle { display: block; }
+}
+
+/* =========================
+   HERO / CARD
+========================= */
+.container {
+    max-width: 1200px;
+    margin: 120px auto 50px;
+    padding: 0 20px;
+}
+
+.card {
+    background-color: var(--light-gray);
+    padding: 24px 28px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    margin-bottom: 30px;
+}
+
+.card h2, .card h3, .card h4 {
+    color: var(--rotaract-pink);
+    margin-bottom: 12px;
+}
+
+.card p {
+    margin-bottom: 12px;
+    color: var(--dark);
+}
+
+.notice {
+    background-color: rgba(226, 69, 124, 0.1);
+    color: var(--rotaract-pink);
+    border: 1px solid var(--rotaract-pink);
+    padding: 10px 12px;
+    border-radius: 8px;
+    margin-bottom: 14px;
+}
+
+/* =========================
+   FORMS
+========================= */
+.form-row {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.form-row input[type="text"],
+.form-row input[type="password"],
+.form-row input[type="file"] {
+    padding: 12px 16px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+.form-row button {
+    background-color: var(--rotaract-pink);
+    color: var(--white);
+    border: none;
+    padding: 12px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.form-row button:hover {
+    background-color: #c42e67;
+}
+
+.button.secondary {
+    background-color: transparent;
+    color: var(--rotaract-pink);
+    border: 2px solid var(--rotaract-pink);
+}
+
+.button.secondary:hover {
+    background-color: var(--rotaract-pink);
+    color: var(--white);
+}
+
+/* =========================
+   TABLE
+========================= */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 16px;
+}
+
+th, td {
+    padding: 12px 14px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: var(--rotaract-pink);
+    color: var(--white);
+    font-weight: 600;
+}
+
+.actions button {
+    margin-right: 6px;
+}
+
+/* =========================
+   BOLLETTINI / LIST
+========================= */
+.bollettini-container {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.bollettino-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    background-color: var(--white);
+    padding: 14px 18px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+
+.bollettino-meta h4 {
+    margin: 0;
+    color: var(--rotaract-pink);
+}
+
+.bollettino-meta p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #444;
+}
+
+.bollettino-actions a {
+    text-decoration: none;
+    border-radius: 8px;
+    padding: 8px 12px;
+    border: 2px solid var(--rotaract-pink);
+    color: var(--rotaract-pink);
+    transition: all 0.15s ease;
+}
+
+.bollettino-actions a:hover {
+    background-color: var(--rotaract-pink);
+    color: var(--white);
+}
+
+.empty-placeholder {
+    text-align: center;
+    color: #666;
+    padding: 18px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+.footer {
+    background-color: var(--dark);
+    color: var(--white);
+    text-align: center;
+    padding: 50px 0 35px;
+    font-size: 0.95rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+}
+
+.footer .socials {
+    display: flex;
+    gap: 30px;
+}
+
+.footer .socials a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255,255,255,0.08);
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    transition: all 0.3s ease;
+}
+
+.footer .socials a img {
+    height: 24px;
+    width: 24px;
+    filter: brightness(0) invert(1);
+}
+
+.footer .socials a:hover {
+    background-color: var(--rotaract-pink);
+}
+
+/* =========================
+   HERO ADMIN
+========================= */
+.hero {
+    height: auto;
+    padding: 100px 10% 40px;
+    background-color: var(--light-gray);
+    color: var(--dark);
+    border-radius: 12px;
+    margin-bottom: 30px;
+}
+
+.hero h2 {
+    color: var(--rotaract-pink);
+}
+
+.hero p {
+    color: var(--dark);
+    margin-top: 10px;
+}

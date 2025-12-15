@@ -1,8 +1,8 @@
-import sqlite3
-import os
-from flask import Flask, jsonify, send_from_directory, abort
+import sqlite3, os
+from flask import Flask, jsonify, send_from_directory, abort, request, session, redirect, render_template
 from flask_cors import CORS
 from werkzeug.utils import secure_filename
+from functools import wraps
 from datetime import datetime
 
 # --- GESTIONE PERCORSO ASSOLUTO ---
@@ -10,6 +10,7 @@ SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 DB_PATH = os.path.normpath(os.path.join(SCRIPT_DIR, '../database.db'))
 # cartella dove mettere i PDF (modifica se vuoi)
 BOLLETTINI_DIR = os.path.normpath(os.path.join(SCRIPT_DIR, '../bollettini'))
+CSV_PATH = os.path.join(SCRIPT_DIR, '../csv/storia.csv')
 # ------------------------------------
 
 app = Flask(__name__)

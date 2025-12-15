@@ -18,6 +18,15 @@ CREATE TABLE IF NOT EXISTS eventi (
 )
 """)
 
+# ---------------- UTENTI (ADMIN) ----------------
+c.execute("""
+CREATE TABLE IF NOT EXISTS utenti (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    username TEXT NOT NULL UNIQUE,
+    password TEXT NOT NULL
+)
+""")
+
 conn.commit()
 conn.close()
 print("✅ Database inizializzato per la sincronizzazione.")
